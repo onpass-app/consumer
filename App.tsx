@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import ProfilesPage from './components/ProfilesPage';
 import WelcomePage from './components/WelcomePage';
+import ReceiptScannerPage from './components/ReceiptScannerPage';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,10 @@ class App extends React.Component {
             <Stack.Screen
               name="Profiles"
               component={ProfilesPage}
+            />
+            <Stack.Screen
+              name="ReceiptScanner"
+              component={ReceiptScannerPage}
             />
           </Stack.Navigator>
         </NavigationContainer>

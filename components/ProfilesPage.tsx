@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Div , Text } from 'react-native-magnus'
+import { Button, Div , Text } from 'react-native-magnus'
 import PagerView from 'react-native-pager-view'
 import Profile from './Profile';
 import {StyleSheet, View} from 'react-native'
 
 export interface ProfilesPageProps {
-    
+    navigation: { navigate: (destination: string) => void; }
 }
  
 export interface ProfilesPageState {
@@ -56,7 +56,7 @@ class ProfilesPage extends React.Component<ProfilesPageProps, ProfilesPageState>
             <View key="1">
                 <Profile
                     name="John Doe"
-                    email="john@gmail.com"
+                    number="(905)000-0000"
                     healthCardNo="1234"
                     vaccineType="moderna"
                     vaccineDoses={2}
@@ -65,7 +65,7 @@ class ProfilesPage extends React.Component<ProfilesPageProps, ProfilesPageState>
             <View key="2">
             <Profile
                     name="Jane Doe"
-                    email="jane@gmail.com"
+                    number="(905)000-0000"
                     healthCardNo="4567"
                     vaccineType="astrazeneca"
                     vaccineDoses={1}
@@ -74,13 +74,22 @@ class ProfilesPage extends React.Component<ProfilesPageProps, ProfilesPageState>
             <View  key="3">
             <Profile
                     name="Timmy Doe"
-                    email="timmy@gmail.com"
+                    number="(905)000-0000"
                     healthCardNo="6789"
                     vaccineType="pfizer"
                     vaccineDoses={2}
                 />
             </View>
             </PagerView>
+            <Button
+                    p="xl"
+                    m="lg" 
+                    alignSelf="flex-end"
+                    rounded="circle" 
+                    onPress={() => this.props.navigation.navigate("ReceiptScanner")}
+                >
+                    +
+            </Button>
         </Div>
         );
     };
