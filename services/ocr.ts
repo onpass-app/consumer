@@ -43,11 +43,10 @@ export async function verifyState(state: any) {
       Accept: "application/json",
     }
   }).then(response => response.json()).then(response => {
-    console.log(JSON.stringify(response))
     toReturn = response
   })
-
-  return toReturn[0].phoneNumber
+  let key = Object.keys(toReturn)[0]
+  return toReturn[key].phoneNumber
 }
 
 export async function createProfileState(data: Array<string>) {
@@ -81,12 +80,5 @@ export async function saveProfileState(state: any) {
     key: 'profiles',
     id: String(state.healthCardNumber),
     data: state
-  })
-}
-
-export async function updateProfileState() {
-  await storage.save({
-    key: 'shouldUpdateProfiles',
-    data: true
   })
 }

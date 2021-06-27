@@ -14,14 +14,14 @@ const WelcomePage = () => {
         "Welcome to ONPass",
         "Step One",
         "Step Two",
-        "Step Three"
+        "Privacy & Data"
     ]
     
     const description = [
-        "Welcome to ONPass! You are only a few steps away from being able to return to (almost) normal living and attend all the events you could ever want!",
-        "A few things first though, you will need to take a picture of your vaccine receipt, so ensure that you have it nearby. ONPass is a vaccine passport system which allows businesses and event coordinators to check the vaccination status of their attendees and maintain a list for contact tracing purposes.",
-        "When your QR is scanned, your name, phone number, and vaccination status will be visible to the person who scanned it however all other information will remain confidential. Please ensure that you understand and consent to this before proceeding.",
-        "On the next page, you will be prompted to add a profile, simply align your camera with the receipt and take a picture. The system will then verify your information and a unique QR code will be generated. Simply present the QR code at events and allow the staff to scan it. That's It! Click the button below when you are ready to proceed"
+        "ONPass is a vaccine passport which allows organizations to check your vaccination status to help keep you and your fellow humans safe! You're only a few steps away from getting back to (almost) normal living!",
+        "Before we get started we'll need you to do a few things first! You'll need your vaccination receipt handy and a well-lit space.",
+        "Ready? Let's get started, click the green button below and take a picture of your receipt when you're ready and we'll generate a unique QR code for you embedded with your name, phone number, and vaccination status!",
+        "Worried about privacy? We got you covered. All your data is stored on device and only transmitted when scanned or for one-time verification with your receipt!",
     ]
 
     useEffect(() => {
@@ -38,6 +38,7 @@ const WelcomePage = () => {
                 h={64}
                 w={64}
                 mt="xl"
+                mb={5}
                 source={logo} />
                 {description.map((message, index) => <WelcomeDescriptionMessage key={index} header={headers[index]} message={message} />)}
                 <Button

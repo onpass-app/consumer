@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native'
 import { parseJSON, createProfileState, verifyState, saveProfileState } from "../../services/ocr"
 import { useNavigation } from '@react-navigation/native'
 
-const CameraPreview = ({ shouldTakePicture, setShouldTakePicture, setPicture }: { shouldTakePicture: boolean, setShouldTakePicture: any, setPicture: any }) => {
+const CameraPreview = ({ shouldTakePicture, setShouldTakePicture, setOverlayVisibility }: { shouldTakePicture: boolean, setShouldTakePicture: any, setOverlayVisibility: any }) => {
     const [cameraPermission, setCameraPermission] = useState();
     const camera = useRef(Camera as any)
     const navigation = useNavigation()
@@ -23,22 +23,21 @@ const CameraPreview = ({ shouldTakePicture, setShouldTakePicture, setPicture }: 
                 setShouldTakePicture(false);
                 const image = await camera.current.takePictureAsync({ base64: true })
                 console.log(image.uri)
-
+                setOverlayVisibility(true)
                 let data = await parseJSON(image.base64.split(" ").join("+"))
                 let state = await createProfileState(data)
                 console.log(JSON.stringify(state))
-                // let phoneNumber = await verifyState(state)
+                let phoneNumber = await verifyState(state)
 
-                if (true) {
+                if (phoneNumber != null) {
+                    state.phoneNumber = phoneNumber
                     await saveProfileState(state)
-                    navigation.navigate("Profiles")
-
-
+                    setOverlayVisibility(false)
+                    navigation.replace("Profiles")
                 } else {
+                    setOverlayVisibility(false)
                     alert("Error: Verification Failed! Please try again.")
                 }
-
-                // .split(" ").join("+") (we don't know if base64 bug still exists...)
             }
         })()
     }, [shouldTakePicture])

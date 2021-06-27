@@ -14,7 +14,8 @@ const WelcomeDescriptionMessage = ({ header, message }: { header: string, messag
                 <Text
                 fontWeight="900"
                 fontSize="xl"
-                color="white">
+                color="white"
+                mb={3}>
                     {header.toUpperCase()}
                 </Text>
                 <Text

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "consumer",
+    "name": "ONPass",
     "slug": "consumer",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,13 +17,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "io.github.onpass.consumer",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "io.github.onpass.android",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"

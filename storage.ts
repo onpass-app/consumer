@@ -8,4 +8,12 @@ const storage = new Storage({
     enableCache: true
 });
 
+export const addToContactTracingList = (state: any) => {
+    (async () => await storage.save({
+        key: 'profiles',
+        id: String(state.healthCardNumber),
+        data: state
+    }))()
+}
+
 export default storage;
