@@ -1,30 +1,62 @@
-import * as React from 'react';
-import { Button, Div , Text } from 'react-native-magnus'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useEffect } from 'react';
+import { Button, Div , Text, Image, Icon } from 'react-native-magnus'
+import storage from "../storage";
+import { ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import logo from '../assets/onpass-logo.png';
+import WelcomeDescriptionMessage from './WelcomeDescriptionMessage';
 
-export interface WelcomePageProps {
-    navigation: { replace: (destination: string) => void; }
-}
- 
-export interface WelcomePageState {
+const WelcomePage = () => {
+    const navigation = useNavigation()
+
+    const headers = [
+        "Welcome to ONPass",
+        "Step One",
+        "Step Two",
+        "Step Three"
+    ]
     
-}
- 
-class WelcomePage extends React.Component<WelcomePageProps, WelcomePageState> {
-    //state = { :  }
-    render() { 
+    const description = [
+        "Welcome to ONPass! You are only a few steps away from being able to return to (almost) normal living and attend all the events you could ever want!",
+        "A few things first though, you will need to take a picture of your vaccine receipt, so ensure that you have it nearby. ONPass is a vaccine passport system which allows businesses and event coordinators to check the vaccination status of their attendees and maintain a list for contact tracing purposes.",
+        "When your QR is scanned, your name, phone number, and vaccination status will be visible to the person who scanned it however all other information will remain confidential. Please ensure that you understand and consent to this before proceeding.",
+        "On the next page, you will be prompted to add a profile, simply align your camera with the receipt and take a picture. The system will then verify your information and a unique QR code will be generated. Simply present the QR code at events and allow the staff to scan it. That's It! Click the button below when you are ready to proceed"
+    ]
+
+    useEffect(() => {
+        async () => {
+            storage.load({ key: 'profiles'}).then(response => console.log(JSON.stringify(response)))
+        }
+    })
+
         return (  
-            <Div m="lg" p="xl">
-                <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel ex sit amet magna dignissim scelerisque. Nam scelerisque sem ut hendrerit vehicula. Fusce laoreet dui eu ligula vulputate gravida in et ex. Cras felis felis, elementum viverra nibh ac, cursus pellentesque neque. Suspendisse ac diam turpis. Aliquam sit amet dui volutpat, tincidunt ligula eget, elementum enim. Quisque eget lectus eleifend, aliquam massa non, placerat nisl. Integer dapibus, nisl ac tempus tempus, risus velit lobortis nisi, in laoreet mi enim non nisi. Donec a justo sed orci pellentesque lobortis et eu lacus. Aenean lobortis elit non leo volutpat, vitae ornare nisl luctus. Morbi quis finibus tortor. Nunc elementum ornare leo, sit amet rutrum justo venenatis ac. </Text>
+            <ScrollView>
+            <Div bg="white" p="xl">
+                <Image 
+                alignSelf="flex-start"
+                h={64}
+                w={64}
+                mt="xl"
+                source={logo} />
+                {description.map((message, index) => <WelcomeDescriptionMessage key={index} header={headers[index]} message={message} />)}
                 <Button
-                    p="md" 
-                    alignSelf="center" 
-                    onPress={() => this.props.navigation.replace("Profiles")}
+                mt="lg"
+                px="3xl"
+                py="lg"
+                bg="green700"
+                color="white"
+                suffix={<Icon name="arrowright" ml="md" color="white" />}
+                justifyContent="center"
+                alignSelf="center"
+                onPress={() => navigation.navigate('VaccinationReceiptScanningPage')}
                 >
-                    Add Profile
+                    Scan Your Vaccination Receipt!
                 </Button>
             </Div>
+            </ScrollView>
         );
     }
-}
+
  
 export default WelcomePage;

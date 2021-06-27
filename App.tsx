@@ -3,8 +3,9 @@ import { ThemeProvider } from 'react-native-magnus';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import ProfilesPage from './components/ProfilesPage';
+import ProfilesPageTwo from './components/ProfilePage2';
 import WelcomePage from './components/WelcomePage';
-import ReceiptScannerPage from './components/ReceiptScannerPage';
+import { VaccinationReceiptScanningPage } from './components/VaccinationReceiptScanningPage';
 
 const Stack = createStackNavigator();
 
@@ -13,18 +14,15 @@ class App extends React.Component {
     return(
       <ThemeProvider>
         <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen
-              name="Welcome"
-              component={WelcomePage}
-            />
+          <Stack.Navigator
+          screenOptions={{headerShown: false }}>
             <Stack.Screen
               name="Profiles"
-              component={ProfilesPage}
+              component={ProfilesPageTwo}
             />
             <Stack.Screen
-              name="ReceiptScanner"
-              component={ReceiptScannerPage}
+              name="VaccinationReceiptScanningPage"
+              component={VaccinationReceiptScanningPage}
             />
           </Stack.Navigator>
         </NavigationContainer>
