@@ -1,4 +1,4 @@
-import storage from "./StorageService"
+import storage from "./StorageObject"
 
 interface VaccinationReceipt {
   name: string

@@ -3,7 +3,7 @@ import { Div } from "react-native-magnus"
 import PagerView from "react-native-pager-view"
 import { View } from "react-native"
 import ProfileView from "../components/profile/ProfileView"
-import storage from "../storage"
+import storage from "../services/StorageObject"
 import WelcomePage from "./WelcomePage"
 import { useNavigation } from "@react-navigation/native"
 

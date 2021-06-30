@@ -2,7 +2,7 @@ import React from "react"
 import { useState } from "react"
 import { useEffect } from "react"
 import { FlatList } from "react-native"
-import storage from "../../../storage"
+import storage from "../../../services/StorageObject"
 import DetailRow from "./DetailRow"
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
