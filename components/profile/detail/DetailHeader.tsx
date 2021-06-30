@@ -2,7 +2,12 @@ import React from "react"
 import { Div, Text } from "react-native-magnus"
 import CloseDetailModalButton from "./CloseDetailModalButton"
 
-const DetailHeader = ({ setModalVisibility }: { setModalVisibility: any }) => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const DetailHeader = ({
+  setModalVisibility,
+}: {
+  setModalVisibility: (value: boolean) => void
+}) => {
   return (
     <Div
       justifyContent="space-between"

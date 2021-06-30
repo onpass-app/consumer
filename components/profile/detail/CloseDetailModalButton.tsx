@@ -1,10 +1,11 @@
 import React from "react"
 import { Button, Icon } from "react-native-magnus"
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const CloseDetailModalButton = ({
   setModalVisibility,
 }: {
-  setModalVisibility: any
+  setModalVisibility: (value: boolean) => void
 }) => {
   return (
     <>

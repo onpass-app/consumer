@@ -1,7 +1,8 @@
 import React from "react"
 import { Div, Text } from "react-native-magnus"
 
-const DetailRow = ({ display, value }: { display: any; value: any }) => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const DetailRow = ({ display, value }: { display: string; value: string }) => {
   const toProperCase = (data: string) => {
     data = data.charAt(0).toUpperCase() + data.slice(1)
     return data.replace(/([a-z])([A-Z])/g, "$1 $2").trim() + ":"

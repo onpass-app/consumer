@@ -1,11 +1,11 @@
-import { Camera } from "expo-camera"
 import React from "react"
 import { Button, Icon, Div } from "react-native-magnus"
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const TakePictureButton = ({
   setShouldTakePicture,
 }: {
-  setShouldTakePicture: any
+  setShouldTakePicture: (value: boolean) => void
 }) => {
   return (
     <Div flexDir="row" justifyContent="center" mt="auto">

@@ -1,7 +1,11 @@
+import { useNavigation } from "@react-navigation/native"
 import * as React from "react"
 import { Button, Icon } from "react-native-magnus"
 
-const OpenCameraPreviewButton = ({ navigate }: { navigate: any }) => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const OpenCameraPreviewButton = () => {
+  const { navigate } = useNavigation()
+
   return (
     <Button
       bg="black"

@@ -1,7 +1,8 @@
 import React, { useState } from "react"
-import { Button, Div, Icon } from "react-native-magnus"
+import { Button, Icon } from "react-native-magnus"
 import DetailsModal from "./DetailsModal"
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const OpenDetailsModalButton = ({ identifier }: { identifier: string }) => {
   const [modalVisibility, setModalVisibility] = useState(false)
 

@@ -2,6 +2,7 @@ import React from "react"
 import { Div } from "react-native-magnus"
 import QRCode from "react-native-qrcode-svg"
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const ProfileQRCode = ({
   name,
   phoneNumber,

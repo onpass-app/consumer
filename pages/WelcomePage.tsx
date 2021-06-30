@@ -1,12 +1,11 @@
-import AsyncStorage from "@react-native-async-storage/async-storage"
-import React, { useEffect } from "react"
-import { Button, Div, Text, Image, Icon } from "react-native-magnus"
-import storage from "../storage"
+import React from "react"
+import { Button, Div, Image, Icon } from "react-native-magnus"
 import { ScrollView } from "react-native"
 import { useNavigation } from "@react-navigation/native"
-import logo from "../assets/onpass-logo.png"
-import WelcomeDescriptionMessage from "./WelcomeDescriptionMessage"
+import icon from "../assets/icon.png"
+import WelcomeDescriptionMessage from "../components/WelcomeDescriptionMessage"
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const WelcomePage = () => {
   const navigation = useNavigation()
 
@@ -24,14 +23,6 @@ const WelcomePage = () => {
     "Worried about privacy? We got you covered. All your data is stored on device and only transmitted when scanned or for one-time verification with your receipt!",
   ]
 
-  useEffect(() => {
-    ;async () => {
-      storage
-        .load({ key: "profiles" })
-        .then((response) => console.log(JSON.stringify(response)))
-    }
-  })
-
   return (
     <ScrollView>
       <Div bg="white" p="xl">
@@ -41,7 +32,7 @@ const WelcomePage = () => {
           w={64}
           mt="xl"
           mb={5}
-          source={logo}
+          source={icon}
         />
         {description.map((message, index) => (
           <WelcomeDescriptionMessage

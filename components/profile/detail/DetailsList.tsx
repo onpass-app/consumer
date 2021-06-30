@@ -2,10 +2,10 @@ import React from "react"
 import { useState } from "react"
 import { useEffect } from "react"
 import { FlatList } from "react-native"
-import { Text } from "react-native-magnus"
 import storage from "../../../storage"
 import DetailRow from "./DetailRow"
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const DetailsList = ({ identifier }: { identifier: string }) => {
   const [details, setDetails] = useState([])
   useEffect(() => {

@@ -3,6 +3,7 @@ import { Modal } from "react-native-magnus"
 import DetailHeader from "./DetailHeader"
 import DetailsList from "./DetailsList"
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const DetailsModal = ({
   identifier,
   modalVisibility,
@@ -10,7 +11,7 @@ const DetailsModal = ({
 }: {
   identifier: string
   modalVisibility: boolean
-  setModalVisibility: any
+  setModalVisibility: (value: boolean) => void
 }) => {
   return (
     <Modal isVisible={modalVisibility} pl={20} pr={20}>

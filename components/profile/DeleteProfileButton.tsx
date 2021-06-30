@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import { Button, Icon } from "react-native-magnus"
 
-const DeleteProfileButton = ({ identifier }: { identifier: string }) => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const DeleteProfileButton = () => {
   return (
     <>
       <Button

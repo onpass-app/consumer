@@ -1,17 +1,15 @@
 import React from "react"
-import { SafeAreaView } from "react-native"
-import { Div, Text } from "react-native-magnus"
+import { Div } from "react-native-magnus"
 import ButtonRow from "../ButtonRow"
 import ProfileHeader from "./ProfileHeader"
 import ProfileQRCode from "./ProfileQRCode"
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const ProfileView = ({
-  navigate,
   identifier,
   name,
   phoneNumber,
 }: {
-  navigate: any
   identifier: string
   name: string
   phoneNumber: string
@@ -24,7 +22,7 @@ const ProfileView = ({
       <Div flex={1} justifyContent="center">
         <ProfileQRCode name={name} phoneNumber={phoneNumber} />
       </Div>
-      <ButtonRow identifier={identifier} navigate={navigate} />
+      <ButtonRow identifier={identifier} />
     </>
   )
 }

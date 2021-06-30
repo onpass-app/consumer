@@ -1,6 +1,7 @@
 import React from "react"
 import { Div, Icon, Text } from "react-native-magnus"
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const NoCameraPermissionMessage = () => {
   return (
     <Div justifyContent="center" alignItems="center">
