@@ -1,23 +1,19 @@
-import React from 'react';
-import { ThemeProvider } from 'react-native-magnus';
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import ProfilesPage from './components/ProfilePage';
-import { VaccinationReceiptScanningPage } from './components/VaccinationReceiptScanningPage';
+import React from "react"
+import { ThemeProvider } from "react-native-magnus"
+import { NavigationContainer } from "@react-navigation/native"
+import { createStackNavigator } from "@react-navigation/stack"
+import ProfilesPage from "./components/ProfilePage"
+import { VaccinationReceiptScanningPage } from "./components/VaccinationReceiptScanningPage"
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 class App extends React.Component {
   render() {
-    return(
+    return (
       <ThemeProvider>
         <NavigationContainer>
-          <Stack.Navigator
-          screenOptions={{headerShown: false }}>
-            <Stack.Screen
-              name="Profiles"
-              component={ProfilesPage}
-            />
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Profiles" component={ProfilesPage} />
             <Stack.Screen
               name="VaccinationReceiptScanningPage"
               component={VaccinationReceiptScanningPage}
@@ -25,7 +21,7 @@ class App extends React.Component {
           </Stack.Navigator>
         </NavigationContainer>
       </ThemeProvider>
-    ) 
+    )
   }
 }
 
