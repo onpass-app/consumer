@@ -3,15 +3,15 @@
 > ![](https://img.shields.io/static/v1?label=Built%20With&message=Expo&style=for-the-badge&logo=expo&color=black) ![](https://img.shields.io/static/v1?label=Built%20With&message=React%20Native&style=for-the-badge&logo=react&color=blue) ![](https://img.shields.io/static/v1?label=Built%20With&message=Firebase&style=for-the-badge&logo=firebase&color=orange) ![](https://img.shields.io/static/v1?label=Built%20With&message=Google%20Cloud&style=for-the-badge&logo=googlecloud&color=darkblue)
 
 ## What is ONPass?
-We'll keep it short and simple, ONPass is a vaccine passport and contact tracing system.
+We'll keep it short and sweet; ONPass is a vaccine passport and contact tracing system.
 
 ## What inspired ONPass?
-In light of the COVID-19 pandemic and the Ontario governments push to accelerate vaccinations, there is still a clear need for a system which can verify vaccination status of individuals and streamline the contact tracing / outbreak reporting process for organizations and the government. Our applications provides an elegant solution to both of these challenges.
+In light of the COVID-19 pandemic and the Ontario governments push to accelerate vaccinations, there is still a clear need for a system which can verify the vaccination status of individuals and streamline the contact tracing / outbreak reporting process for organizations and the government. Our applications provides an elegant solution to both of these challenges.
 
 ## What does the consumer side do?
 At a high level the consumer app is responsible for retrieving and storing all vaccination data.
 <br><br>
-On a more minute level it's responsible for:
+On a lower level it's responsible for:
 * Sending an image capture of the user's vaccination receipt to Google Cloud Vision for optical character recognition, alongside parsing the returned result.
 * Verifying the parsed vaccination data through Firebase (our mock government servers) to ensure that the receipt or vaccination data is not forged.
 * Saving verified data for future use and generating a QR Code for the contact tracing functionality in the enterprise app.
@@ -41,4 +41,4 @@ On a more minute level it's responsible for:
 * [Luca Bastone-Mohabir](https://www.github.com/lbstne)
 
 ## License
-Copyright &copy; 2021, Anmol Brar and Luca Bastone-Mohabir, All Rights Reserved
+Copyright &copy; 2021, Anmol Brar and Luca Bastone-Mohabir, All Rights Reserved.
