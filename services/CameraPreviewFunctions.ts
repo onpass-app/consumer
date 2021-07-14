@@ -1,4 +1,5 @@
 import storage from "./StorageObject"
+import Constants from "expo-constants"
 
 interface VaccinationReceipt {
   name: string
@@ -21,7 +22,7 @@ const getParsedVaccinationReceipt = async (
   image: string,
 ): Promise<VaccinationReceipt> => {
   return await fetch(
-    "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyC1d1x6C568LCfXC4ZY7Vdncw5zWNaEOIA",
+    `https://vision.googleapis.com/v1/images:annotate?key=${Constants.manifest.extra.googleCloudVisionKey}`,
     {
       method: "POST",
       headers: {
@@ -82,7 +83,8 @@ const isParsedVaccinationReceiptValid = async ({
   healthCardNumber: number
 }): Promise<boolean> => {
   return await fetch(
-    'https://onpass-b9abc-default-rtdb.firebaseio.com/people.json?orderBy="dateOfBirth"&equalTo="' +
+    Constants.manifest.extra.firebaseDatabaseUrl +
+      '?orderBy="dateOfBirth"&equalTo="' +
       dateOfBirth +
       '"&orderBy="name"&equalTo="' +
       name +
